@@ -7,5 +7,9 @@ COPY . .
 RUN composer install
 RUN composer dump-autoload
 RUN php artisan key:generate
+RUN php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="migrations"
+RUN php artisan migrate
+RUN php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"
+
 CMD php artisan serve --host=0.0.0.0 --port=8181
 EXPOSE 8181

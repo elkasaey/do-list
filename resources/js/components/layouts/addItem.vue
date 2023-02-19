@@ -1,7 +1,8 @@
 <template>
     <div class="addItemContainer">
-        <input type="text" class="inputForm" aria-label="input Item" aria-describedby="input Item" placeholder="Type your todo item" v-model="item.name">
-        <font-awesome-icon icon="plus-square" :class="[item.name ? 'active' : 'inactive', 'plus']" @click="addItem()" />
+        <input type="text" class="inputForm" aria-label="input Item" aria-describedby="input Item" placeholder="Type your todo item" v-model="item.title">
+        <input type="text" class="inputForm" aria-label="input Item" aria-describedby="input Item" placeholder="Type your todo item" v-model="item.desc">
+        <font-awesome-icon icon="plus-square" :class="[item.title ? 'active' : 'inactive', 'plus']" @click="addItem()" />
     </div>
 
 </template>
@@ -11,13 +12,14 @@ export default {
     data: function () {
         return {
             item: {
-                name: ""
+                title: "",
+                desc:""
             }
         }
     },
     methods:{
         addItem() {
-            if(this.item.name === ''){
+            if(this.item.title === ''){
                 return;
             }
 

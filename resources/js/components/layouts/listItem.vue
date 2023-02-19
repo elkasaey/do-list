@@ -1,7 +1,7 @@
 <template>
 <div class="itemDiv">
-        <input type="checkbox" @change="updateCheck()" v-model="item.completed" class="checkbox"/>
-    <span :class="[item.status.name ? 'completed' : '', 'itemText']">{{item.name}}</span>
+        <input type="checkbox" @change="updateCheck()" v-model="item.status.name" class="checkbox"/>
+    <span :class="[item.status.name ? 'COMPLETED' : '', 'itemText']">{{item.title}}</span>
     <button @click="deleteItem()" class="trash">
         <font-awesome-icon icon="trash" />
     </button>

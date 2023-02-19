@@ -20,6 +20,8 @@
     "dependencies": {
         "vue-router": "^4.1.6",
         "vuex": "^4.1.0",
-        "vuex-persistedstate": "^4.1.0"
+        "vuex-persistedstate": "^4.1.0",
+        "laravel-echo": "^1.7.0",
+        "pusher-js": "^5.1.1"
     }
 }
