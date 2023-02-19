@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
-Broadcast::channel('public', function ($user) {
+
+Broadcast::channel('newTask', function(){
+	return true;
+}
+);
+Broadcast::channel('taskRemoved', function(){
+    return true;
+});
+Broadcast::channel('editTask', function(){
     return true;
 });

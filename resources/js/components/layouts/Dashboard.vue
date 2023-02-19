@@ -25,6 +25,24 @@ export default {
             items: []
         }
     },
+    mounted() {
+
+          window.Echo.channel("newTask").listen(".task-created", e => {
+              this.$store.commit("ADD_TODO", e.task);
+              this.newTodo.title = "";
+          });
+
+          window.Echo.channel("taskRemoved").listen(".task-removed", e => {
+              this.$store.commit("DELETE_TODO", this.toRemove);
+          });
+
+          window.Echo.channel("editTask").listen(".task-updated", e => {
+              this.$store.commit("UPDATE_TODO", this.updated);
+          });
+      },
+      computed: {
+          ...mapGetters(["newTodo", "toRemove","updated"])
+      },
     methods: {
         getAllItems(){
             axios.get('api/list').then(response => {

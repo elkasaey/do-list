@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
     data: function () {
         return {
@@ -34,6 +35,9 @@ export default {
                 console.log(error);
             })
         }
+    },
+    computed: {
+      ...mapGetters(["newTodo"])
     }
 }
 </script>
